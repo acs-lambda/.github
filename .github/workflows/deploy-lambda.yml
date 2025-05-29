@@ -11,12 +11,15 @@ on:
         required: false
         default: us-east-1
         type: string
+    secrets:
+      GHA_AWS_ROLE_ARN:
+        required: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write   # needed for OIDC
+      id-token: write
       contents: read
 
     steps:
@@ -27,15 +30,3 @@ jobs:
         with:
           role-to-assume: ${{ secrets.GHA_AWS_ROLE_ARN }}
           aws-region: ${{ inputs.region }}
-
-      - name: Install dependencies
-        run: |
-          # adjust for your language:
-          npm ci || pip install -r requirements.txt
-
-      - name: Zip and deploy
-        run: |
-          zip -r function.zip .
-          aws lambda update-function-code \
-            --function-name "${{ inputs.function-name }}" \
-            --zip-file fileb://function.zip
