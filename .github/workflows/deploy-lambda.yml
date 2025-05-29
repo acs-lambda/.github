@@ -36,7 +36,15 @@ jobs:
       # 3) install dependencies (if you have any)
       - name: Install dependencies
         run: |
-          npm ci      # or: pip install -r requirements.txt
+          if [ -f package-lock.json ]; then
+            echo "Lockfile found, running npm ci…"
+            npm ci
+          elif [ -f requirements.txt ]; then
+            echo "Python requirements.txt found, running pip install…"
+            pip install -r requirements.txt
+          else
+            echo "No dependency files detected, skipping install."
+          fi
 
       # 4) zip up and push to Lambda
       - name: Zip & Deploy to Lambda
