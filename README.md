@@ -6,7 +6,7 @@ Welcome! This guide shows you how to spin up a new repository for an AWS Lambda 
 
 ## 1️⃣ From the Organization Home
 
-1. Go to **github.com/YOUR\_ORG** and click **New** → **Choose a template**.
+1. Go to **github.com/acs-lambda** and click **New** → **Choose a template**.
 2. Select **`lambda-template`**.
 3. Give your repo a name, e.g. `user-auth-function`, and click **Create repository from template**.
 
