@@ -1,12 +1,12 @@
 # Quickstart: Create & Deploy a New Lambda Repo
 
-Welcome! This guide shows you how to spin up a new repository for an AWS Lambda function in our GitHub organization and get code auto‑deployed on every push to `main`.
+This guide shows you how to spin up a new repository for an AWS Lambda function in our GitHub organization and get code auto‑deployed on every push to `main`.
 
 ---
 
 ## 1️⃣ From the Organization Home
 
-1. Go to **github.com/acs-lambda** and click **New** → **Choose a template**.
+1. Go to **github.com/acs-lambda** and click **Create New Repository** → **Choose a template**.
 2. Select **`lambda-template`**.
 3. Give your repo a name, e.g. `user-auth-function`, and click **Create repository from template**.
 
@@ -35,19 +35,14 @@ Welcome! This guide shows you how to spin up a new repository for an AWS Lambda 
 
 ## 3️⃣ Add Your Code
 
-1. In the repo root, add or edit your handler file:
+1. In the repo root, add or edit your lambda files and edit:
 
    * **Node.js:** `index.js`
    * **Python:** `handler.py`
-2. Install dependencies locally to verify (optional):
-
-   ```bash
-   npm ci           # or: pip install -r requirements.txt
-   ```
 
 ---
 
-## 4️⃣ Commit & Push
+## 4️⃣ Commit & Push to a Branch
 
 1. Stage all changes:
 
@@ -59,19 +54,17 @@ Welcome! This guide shows you how to spin up a new repository for an AWS Lambda 
    ```bash
    git commit -m "feat: initial implementation of user-auth function"
    ```
-3. Push to GitHub:
+3. Push to a non-main branch in GitHub:
 
    ```bash
-   git push origin main
+   git push
    ```
 
 ---
 
-## 5️⃣ Watch It Deploy
+## 5️⃣ Merge with Main (PR)
 
-1. Go to **Actions** in your repo.
-2. Click the **Deploy** workflow.
-3. Confirm it ran successfully and updated your Lambda.
+1. You will need to create a pull request to do so.
 
 ---
 
